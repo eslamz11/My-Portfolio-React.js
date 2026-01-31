@@ -310,9 +310,9 @@ You are free to use this project as a template for your own portfolio. If you do
 
 - 📧 Email: [e.zayed1947@su.edu.eg](mailto:e.zayed1947@su.edu.eg)
 - 📱 Phone: +20 109 313 0120
-- 💼 LinkedIn: [Eslam Zayed](https://www.linkedin.com/in/eslam-zayed)
+- 💼 LinkedIn: [Eslam Zayed](https://www.linkedin.com/in/eslamz11)
 - 🐙 GitHub: [@eslamz11](https://github.com/eslamz11)
-- 🌐 Portfolio: [your-portfolio-url.com](https://your-portfolio-url.com)
+- 🌐 Portfolio: [eslamz11](https://eslamz11.vercel.app/)
 
 ---
 
