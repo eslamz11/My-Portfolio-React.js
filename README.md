@@ -12,7 +12,8 @@
 
 **[View Live Demo](https://eslamz11.vercel.app/)** • **[Report Bug](https://github.com/eslamz11/Portfolio-React.js/issues)** • **[Request Feature](https://github.com/eslamz11/Portfolio-React.js/issues)**
 
-<img width="1892" height="1017" alt="hero" src="https://github.com/user-attachments/assets/45a69db2-1190-4eed-b4c6-f16d34c7b3e1" />
+<img width="1905" height="1027" alt="hero" src="https://github.com/user-attachments/assets/eae1792b-05db-4521-91cd-42fe284a412a" />
+
 [Portfolio Preview](https://eslamz11.vercel.app/)
 
 </div>
@@ -39,6 +40,7 @@
 - [Acknowledgments](#-acknowledgments)
 
 ---
+<img width="1918" height="1017" alt="projects" src="https://github.com/user-attachments/assets/2916a238-9102-4917-8fc9-935438a7eb8f" />
 
 ## 🎯 Overview
 
