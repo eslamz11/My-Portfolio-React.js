@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { SiTailwindcss, SiFlutter, SiDart, SiFirebase, SiReact } from "react-icons/si";
+import { SiTailwindcss, SiFlutter, SiDart, SiFirebase, SiReact, SiJavascript } from "react-icons/si";
 import { motion } from "framer-motion";
-import { Briefcase, Download } from "lucide-react";
+import { Briefcase, Download, MousePointer2 } from "lucide-react";
 
 const TechBadge = ({ icon: Icon, name, color }) => (
   <motion.div
@@ -87,8 +87,8 @@ export default function Hero() {
               </motion.span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-              Hi, I'm <span className="text-gradient">Eslam Zayed</span>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+              Hi, I'm <br className="sm:hidden" /> <span className="text-gradient whitespace-nowrap">Eslam Zayed</span>
             </h1>
 
             <div className="h-8 mb-8">
@@ -127,6 +127,8 @@ export default function Hero() {
                 <TechBadge icon={SiDart} name="Dart" color="text-blue-400" />
                 <TechBadge icon={SiFirebase} name="Firebase" color="text-yellow-500" />
                 <TechBadge icon={SiReact} name="React" color="text-blue-300" />
+                <TechBadge icon={SiJavascript} name="JavaScript" color="text-yellow-400" />
+                <TechBadge icon={MousePointer2} name="Cursor" color="text-white" />
               </div>
             </div>
           </motion.div>
