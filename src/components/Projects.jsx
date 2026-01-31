@@ -1,178 +1,151 @@
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { FaGithub, FaShare } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 
 const projects = [
   {
-    title: "El-Sahm Real Estate App",
-    description:
-      "Real estate application to help students find suitable housing in El-Arish. Designed and developed a user-friendly mobile application, implemented BLoC state management, and integrated Firebase for real-time listings.",
-    tools: ["Flutter", "Supabase", "Firebase", "BLoC", "Dart"],
-    liveDemo: "https://elsahm.netlify.app/", // Placeholder as per image view details
+    title: "El-Sahm Real Estate",
+    description: "A comprehensive real estate platform helping students find housing. Features BLoC state management and real-time Firebase listings.",
+    tools: ["Flutter", "Supabase", "Firebase", "BLoC"],
+    liveDemo: "https://elsahm.netlify.app/",
     sourceCode: "https://github.com/eslamz11",
     img: "/real-estate.png",
   },
   {
-    title: "Sina Fast Delivery & Store App",
-    description:
-      "Delivery and store application for El-Arish city. Built a cross-platform mobile app supporting delivery services, managed orders and payments, and designed interactive UI using Flutter and Material Design.",
-    tools: ["Flutter", "BLoC", "Firebase", "Dart", "Material Design"],
+    title: "Sinia Fast Delivery",
+    description: "Cross-platform delivery application with order management and real-time tracking using Material Design principles.",
+    tools: ["Flutter", "BLoC", "Firebase", "Dart"],
     liveDemo: "https://github.com/eslamz11/Sinia-Fast/releases/tag/Sinia-Fast",
     sourceCode: "https://github.com/eslamz11/Sinia-Fast",
     img: "/delivery-app.png",
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
+const ProjectCard = ({ project, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    viewport={{ once: true }}
+    className="group relative rounded-3xl overflow-hidden bg-dark-card border border-white/5 hover:border-emerald-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10"
+  >
+    {/* Image Section */}
+    <div className="relative h-64 md:h-80 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity" />
+      <img
+        src={project.img}
+        alt={project.title}
+        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+      />
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.9 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-const Projects = () => {
-  return (
-    <section id="projects" className="py-20 bg-[#0F1A14]">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="mb-12 text-center"
+      {/* Floating Action Buttons */}
+      <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+        <a
+          href={project.sourceCode}
+          target="_blank"
+          className="p-3 bg-dark-card/90 backdrop-blur-md rounded-full text-white hover:text-emerald-500 hover:bg-white transition-all shadow-lg"
+          title="View Source"
         >
-          <h3 className="mb-6 text-white font-bold text-3xl relative inline-block">
-            Recent Projects
-            <span className="absolute w-20 h-1 bg-[#6B8E23] -bottom-3 left-1/2 -translate-x-1/2"></span>
-          </h3>
-
-          <p className="text-gray-400 max-w-lg mx-auto">
-            Explore my latest work where creativity meets functionality
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="flex flex-col gap-10"
+          <FaCode size={18} />
+        </a>
+        <a
+          href={project.liveDemo}
+          target="_blank"
+          className="p-3 bg-primary/90 backdrop-blur-md rounded-full text-white hover:bg-primary transition-all shadow-lg"
+          title="View Live"
         >
-          {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              variants={cardVariants}
-              className={`group grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden
-              border border-gray-800 hover:border-[#6B8E23] transition-colors duration-500
-              transform-gpu will-change-transform`}
-            >
-              <div
-                className={`relative overflow-hidden flex items-center justify-center
-                  `}
-              // ${i % 2 !== 0 ? "md:order-2" : "md:order-1"}
-              >
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="w-full h-full object-cover
-                              transition-transform duration-700 ease-out
-                              group-hover:scale-[1.06]"
-                />
-              </div>
+          <FaExternalLinkAlt size={18} />
+        </a>
+      </div>
+    </div>
 
-              <div
-                className={`col-span-2 md:col-span-1 p-8 flex flex-col bg-[#16251D]
-                  `}
-              // ${i % 2 !== 0 ? "md:order-1" : "md:order-2"}
-              >
-                <span className="text-[#6B8E23] text-sm font-semibold mb-3">
-                  FEATURED PROJECT
-                </span>
-
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#6B8E23] transition-colors duration-500">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-500 mb-6">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tools.map((tool, i) => (
-                    <span
-                      key={i}
-                      className="bg-gray-700 text-white px-3 py-1 rounded-lg text-sm"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-3">
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    className="bg-[#6B8E23] px-4 py-2 rounded-xl text-white flex items-center gap-2 hover:opacity-90 transition-all hover:scale-105
-                                text-sm md:text-base"
-                  >
-                    <FaShare /> View Live
-                  </a>
-
-                  <a
-                    href={project.sourceCode}
-                    target="_blank"
-                    className="bg-gray-700 px-4 py-2 rounded-xl text-white flex items-center gap-2 hover:bg-gray-600 transition-all hover:scale-105
-                                text-sm md:text-base"
-                  >
-                    <FaGithub /> Source Code
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-        <div className="text-center mt-20 pt-16 border-t border-border relative">
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-20 h-20 bg-[#6B8E23]/10 rounded-full flex items-center justify-center">
-              <div className="w-12 h-12 bg-[#6B8E23]/20 rounded-full flex items-center justify-center">
-                <div className="w-6 h-6 bg-[#6B8E23] rounded-full"></div>
-              </div>
-            </div>
-          </div>
-          <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-            Ready to <span className="text-[#6B8E23]">Collaborate</span>?
-          </h3>
-          <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-            Let's join forces to create something extraordinary with clean,
-            scalable, and modern solutions
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#6B8E23] text-white
-            rounded-xl hover:bg-primary/90 hover:scale-105 transition-all
-            duration-300 group font-medium"
+    {/* Content Section */}
+    <div className="p-8 relative z-20 -mt-6 bg-gradient-to-b from-transparent to-dark-card">
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.tools.map((tool, i) => (
+          <span
+            key={i}
+            className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 backdrop-blur-sm"
           >
-            <span>Start a Project</span>
-            <div className="group-hover:translate-x-1 transition-transform">
-              <FaShare />
-            </div>
-          </a>
+            {tool}
+          </span>
+        ))}
+      </div>
+
+      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-500 transition-colors">
+        {project.title}
+      </h3>
+
+      <p className="text-gray-400 mb-6 line-clamp-3">
+        {project.description}
+      </p>
+
+      <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+        <a
+          href={project.liveDemo}
+          target="_blank"
+          className="flex items-center gap-2 text-sm font-medium text-white hover:text-emerald-500 transition-colors"
+        >
+          View Project <FaExternalLinkAlt size={12} />
+        </a>
+        <a
+          href={project.sourceCode}
+          target="_blank"
+          className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors"
+        >
+          Source Code <FaGithub size={14} />
+        </a>
+      </div>
+    </div>
+  </motion.div>
+);
+
+export default function Projects() {
+  return (
+    <section id="projects" className="py-24 bg-dark relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Recent <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Showcasing real-world applications built with modern technologies.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-20 text-center"
+        >
+          <div className="p-8 rounded-3xl bg-gradient-to-r from-primary/10 to-emerald-500/10 border border-primary/20 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to start your next project?</h3>
+            <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+              I'm available for freelance work and collaborations. Let's discuss how we can turn your ideas into reality.
+            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center px-8 py-3 rounded-full bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition-all shadow-lg hover:shadow-emerald-500/25"
+            >
+              Let's Talk
+            </a>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

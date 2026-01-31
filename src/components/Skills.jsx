@@ -1,258 +1,101 @@
-import {
-  Code,
-  GitBranchIcon,
-  Layers,
-  Settings,
-  TerminalSquare,
-  Server,
-  Database,
-  Smartphone,
-  Bug,
-  Users,
-  Brain,
-} from "lucide-react";
-import { FaGithub } from "react-icons/fa";
-import {
-  SiDart,
-  SiFlutter,
-  SiFirebase,
-  SiPostman,
-  SiGit,
-} from "react-icons/si";
-// eslint-disable-next-line no-unused-vars
+import { Code, Database, Globe, Layers, Layout, Server, Settings, Smartphone, Terminal, Wrench } from "lucide-react";
+import { SiFlutter, SiDart, SiFirebase, SiGit, SiPostman, SiFigma, SiSupabase, SiReact } from "react-icons/si";
 import { motion } from "framer-motion";
 
-const mySkills = [
+const skills = [
   {
-    icon: <Smartphone size={36} />,
-    title: "Mobile Development",
-    text: "Building cross-platform mobile applications with high performance and native-like experience.",
-    popups: [
-      {
-        icon: <SiFlutter size={14} />,
-        name: "Flutter",
-      },
-      {
-        icon: <SiDart size={14} />,
-        name: "Dart",
-      },
-      {
-        icon: <Code size={14} />,
-        name: "BLoC Pattern",
-      },
-      {
-        icon: <Layers size={14} />,
-        name: "Riverpod",
-      },
-      {
-        icon: <Settings size={14} />,
-        name: "Responsive UI",
-      },
+    category: "Mobile & Frontend",
+    icon: <Smartphone className="text-cyan-400" size={32} />,
+    items: [
+      { name: "Flutter", icon: <SiFlutter className="text-cyan-400" size={20} /> },
+      { name: "Dart", icon: <SiDart className="text-blue-500" size={20} /> },
+      { name: "React", icon: <SiReact className="text-blue-400" size={20} /> },
+      { name: "Responsive UI", icon: <Layout className="text-purple-400" size={20} /> },
     ],
   },
   {
-    icon: <Code size={36} />,
-    title: "Core & Architecture",
-    text: "Writing clean, maintainable, and scalable code using best practices and design patterns.",
-    popups: [
-      {
-        icon: <Code size={14} />,
-        name: "OOP",
-      },
-      {
-        icon: <Layers size={14} />,
-        name: "SOLID Principles",
-      },
-      {
-        icon: <Settings size={14} />,
-        name: "Clean Architecture",
-      },
-      {
-        icon: <Code size={14} />,
-        name: "MVC/MVVM",
-      },
+    category: "Backend & Services",
+    icon: <Server className="text-emerald-400" size={32} />,
+    items: [
+      { name: "Firebase", icon: <SiFirebase className="text-yellow-500" size={20} /> },
+      { name: "Supabase", icon: <SiSupabase className="text-emerald-500" size={20} /> },
+      { name: "REST APIs", icon: <Globe className="text-blue-500" size={20} /> },
+      { name: "Cloud Functions", icon: <Settings className="text-gray-400" size={20} /> },
     ],
   },
   {
-    icon: <Database size={36} />,
-    title: "Backend & Database",
-    text: "Integrating robust backend services and managing real-time data efficiently.",
-    popups: [
-      {
-        icon: <SiFirebase size={14} />,
-        name: "Firebase",
-      },
-      {
-        icon: <Database size={14} />,
-        name: "Supabase",
-      },
-      {
-        icon: <Server size={14} />,
-        name: "RESTful APIs",
-      },
+    category: "Architecture & State",
+    icon: <Layers className="text-amber-400" size={32} />,
+    items: [
+      { name: "BLoC", icon: <Code className="text-blue-500" size={20} /> },
+      { name: "Riverpod", icon: <Layers className="text-indigo-400" size={20} /> },
+      { name: "Clean Arch", icon: <Wrench className="text-gray-400" size={20} /> },
+      { name: "MVVM", icon: <Layout className="text-teal-400" size={20} /> },
     ],
   },
   {
-    icon: <GitBranchIcon size={36} />,
-    title: "Tools & DevOps",
-    text: "Using industry-standard tools for version control, testing, and deployment.",
-    popups: [
-      {
-        icon: <SiGit size={14} />,
-        name: "Git",
-      },
-      {
-        icon: <FaGithub size={14} />,
-        name: "GitHub",
-      },
-      {
-        icon: <TerminalSquare size={14} />,
-        name: "CI/CD",
-      },
-      {
-        icon: <SiPostman size={14} />,
-        name: "Postman",
-      },
-    ],
-  },
-  {
-    icon: <Bug size={36} />,
-    title: "Testing & Performance",
-    text: "Ensuring application reliability through comprehensive testing and performance optimization.",
-    popups: [
-      {
-        icon: <Bug size={14} />,
-        name: "Unit Testing",
-      },
-      {
-        icon: <Settings size={14} />,
-        name: "Debugging",
-      },
-      {
-        icon: <TerminalSquare size={14} />,
-        name: "Integration Test",
-      },
-      {
-        icon: <Code size={14} />,
-        name: "Code Review",
-      },
-    ],
-  },
-  {
-    icon: <Users size={36} />,
-    title: "Soft Skills",
-    text: "Effective communication, leadership, and problem-solving abilities within technical teams.",
-    popups: [
-      {
-        icon: <Brain size={14} />,
-        name: "Problem Solving",
-      },
-      {
-        icon: <Users size={14} />,
-        name: "Communication",
-      },
-      {
-        icon: <Layers size={14} />,
-        name: "Mentorship",
-      },
-      {
-        icon: <GitBranchIcon size={14} />,
-        name: "Teamwork",
-      },
+    category: "Tools & DevOps",
+    icon: <Terminal className="text-gray-400" size={32} />,
+    items: [
+      { name: "Git & GitHub", icon: <SiGit className="text-orange-500" size={20} /> },
+      { name: "Postman", icon: <SiPostman className="text-orange-400" size={20} /> },
+      { name: "Figma", icon: <SiFigma className="text-pink-500" size={20} /> },
+      { name: "CI/CD", icon: <Settings className="text-gray-300" size={20} /> },
     ],
   },
 ];
 
-const containerVariant = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
-    },
-  },
-};
-
-const zoomItem = {
-  hidden: { scale: 0.92, opacity: 0 },
-  show: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const Skills = () => {
+export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="relative min-h-[90vh] flex items-center overflow-hidden
-      bg-gradient-to-r from-[#0F1A14] via-[#16251D] to-[#0F1A14] py-20"
-    >
-      <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h3 className="mb-6 text-white font-bold text-3xl text-center relative">
-            My Skills
-            <span className="absolute w-20 h-1 bg-[#6B8E23] -bottom-3 left-1/2 -translate-x-1/2"></span>
-          </h3>
+    <section id="skills" className="py-20 bg-dark relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-lighter/50 to-transparent pointer-events-none" />
 
-          <p className="text-gray-400 leading-6 text-center max-w-lg mx-auto">
-            I've worked with a variety of technologies in front-end development.
-            Here are some of my key areas of expertise:
+      <div className="container mx-auto px-6 relative z-10">
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Technical <span className="text-gradient">Skills</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            A comprehensive toolkit for building robust and scalable mobile applications.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariant}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {mySkills.map((skill, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skills.map((skill, index) => (
             <motion.div
-              key={i}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              variants={zoomItem}
-              className="p-5 border border-gray-500 rounded-xl hover:border-[#6B8E23] transition-colors duration-300
-                          will-change-transform transform-gpu"
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-dark-card border border-white/5 rounded-2xl p-6 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 group"
             >
-              <div className="text-[#6B8E23] mb-2">{skill.icon}</div>
-              <h4 className="text-white font-bold text-xl text-center mb-2">
-                {skill.title}
-              </h4>
-              <p className="text-gray-400 text-center leading-5 mb-4 text-sm">
-                {skill.text}
-              </p>
-              <div className="flex gap-2 flex-wrap justify-center">
-                {skill.popups.map((popup, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 rounded-full text-xs
-                            bg-[#6B8E23]/10 text-[#6B8E23] border border-[#6B8E23]
-                              flex items-center gap-1 w-fit mx-auto md:mx-0 cursor-pointer"
-                  >
-                    {popup.icon}
-                    {popup.name}
-                  </span>
+              <div className="mb-6 bg-white/5 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                {skill.icon}
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-6">{skill.category}</h3>
+
+              <div className="space-y-4">
+                {skill.items.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 text-gray-400 group-hover:text-gray-300 transition-colors">
+                    <span className="p-1.5 bg-white/5 rounded-lg">{item.icon}</span>
+                    <span className="font-medium text-sm">{item.name}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );
-};
-
-export default Skills;
+}

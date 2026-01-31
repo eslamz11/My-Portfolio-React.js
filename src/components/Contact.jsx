@@ -1,162 +1,106 @@
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
-import {
-  FaFacebook,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaPhone,
-  FaWhatsapp,
-} from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
-const contactBoxs = [
+const contactInfo = [
   {
-    icon: <FaLocationDot size={24} />,
-    title: "Location",
-    text: "Egypt",
-    href: "https://www.google.com/maps/search/Egypt",
-  },
-  {
-    icon: <Mail size={24} />,
+    icon: <Mail className="text-primary" size={24} />,
     title: "Email",
-    text: "e.zayed1947@su.edu.eg",
+    value: "e.zayed1947@su.edu.eg",
     href: "mailto:e.zayed1947@su.edu.eg",
   },
   {
-    icon: <FaPhone size={24} />,
+    icon: <Phone className="text-primary" size={24} />,
     title: "Phone",
-    text: "+201003193622",
+    value: "+20 100 319 3622",
     href: "tel:+201003193622",
   },
-];
-const containerVariant = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
-    },
-  },
-};
-
-const icons = [
   {
-    icon: <FaGithub size={20} />,
-    href: "https://github.com/eslamz11",
-  },
-  {
-    icon: <FaInstagram size={20} />,
-    href: "https://www.instagram.com/eslamz11/",
-  },
-  {
-    icon: <FaFacebook size={20} />,
-    href: "https://www.facebook.com/eslammosalah",
-  },
-  {
-    icon: <FaLinkedin size={20} />,
-    href: "https://www.linkedin.com/in/eslamz11",
-  },
-  {
-    icon: <FaWhatsapp size={20} />,
-    href: "https://wa.me/+201003193622",
+    icon: <MapPin className="text-primary" size={24} />,
+    title: "Location",
+    value: "Gharbia, Egypt",
+    href: "https://maps.app.goo.gl/yDCutyD4y32BUZNN9",
   },
 ];
 
-const zoomItem = {
-  hidden: { scale: 0.92, opacity: 0 },
-  show: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
+const socialLinks = [
+  { icon: <FaGithub size={20} />, href: "https://github.com/eslamz11", color: "hover:bg-gray-800" },
+  { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/eslamz11", color: "hover:bg-blue-700" },
+  { icon: <FaWhatsapp size={20} />, href: "https://wa.me/+201003193622", color: "hover:bg-green-600" },
+  { icon: <FaFacebook size={20} />, href: "https://www.facebook.com/eslammosalah", color: "hover:bg-blue-600" },
+  { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/eslamz11/", color: "hover:bg-pink-600" },
+];
 
-const Contact = () => {
+export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative flex items-center overflow-hidden
-      bg-gradient-to-r from-[#0F1A14] via-[#16251D] to-[#0F1A14] py-20"
-    >
-      <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 90 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h3 className="mb-6 text-white font-bold text-3xl text-center relative">
-            Let's Connect
-            <span className="absolute w-20 h-1 bg-[#6B8E23] -bottom-3 left-1/2 -translate-x-1/2"></span>
-          </h3>
+    <section id="contact" className="py-24 bg-dark-lighter relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10 max-w-5xl">
 
-          <p className="text-gray-400 leading-6 text-center max-w-lg mx-auto">
-            Have a project in your mind or want to discuss opportunities? I'm
-            always open to talking about creative ideas and new projects.
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Get In <span className="text-gradient">Touch</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Have a project in mind or want to discuss new opportunities?
+            I'm always open to connecting!
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariant}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {contactBoxs.map((item, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {contactInfo.map((item, index) => (
             <motion.a
-              key={i}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              variants={zoomItem}
+              key={index}
               href={item.href}
-              target={item.title !== "Email" ? "_blank" : ""}
-              rel="noopener noreferrer"
-              className="p-5 border border-gray-500 rounded-xl hover:border-[#6B8E23] transition-colors duration-300
-                          will-change-transform transform-gpu mb-6 md:mb-12"
+              target="_blank"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center p-8 rounded-2xl bg-dark-card border border-white/5 hover:border-primary/50 transition-all hover:-translate-y-1 group"
             >
-              <div className="flex items-center justify-center mb-2 text-[#6B8E23]">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 {item.icon}
               </div>
-              <h4 className="font-semibold text-white text-center text-xl mb-1">
-                {item.title}
-              </h4>
-              <p className="text-sm text-gray-500 text-center">{item.text}</p>
+              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-gray-400 group-hover:text-primary transition-colors">{item.value}</p>
             </motion.a>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex justify-center gap-4"
+        >
+          {socialLinks.map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-12 h-12 flex items-center justify-center rounded-full bg-dark border border-white/10 text-gray-400 transition-all hover:text-white hover:-translate-y-1 ${social.color}`}
+            >
+              {social.icon}
+            </a>
           ))}
         </motion.div>
 
-        <div className="flex justify-center gap-4 mb-12">
-          {icons.map((icon, i) => (
-            <a
-              key={i}
-              href={icon.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center rounded-full border text-white hover:border-[#6B8E23] hover:bg-[#6B8E23] transition-colors duration-300"
-            >
-              {icon.icon}
-            </a>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <a
-            href="mailto:e.zayed1947@su.edu.eg"
-            className="inline-block px-6 py-3 rounded-lg bg-[#6B8E23] text-white font-medium hover:bg-[#6B8E23]/90 transition-colors"
-          >
-            Start a Conversation
+        <div className="mt-16 text-center">
+          <a href="mailto:e.zayed1947@su.edu.eg" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary-hover shadow-lg hover:shadow-primary/25 transition-all">
+            <Send size={20} />
+            Send Message
           </a>
         </div>
+
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
