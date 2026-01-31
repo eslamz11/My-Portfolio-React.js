@@ -32,6 +32,24 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400;
   }
+
+  /* 3D Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .translate-z-16 {
+    transform: translateZ(4rem);
+    /* 64px = half of w-32 */
+  }
+
+  .-translate-z-16 {
+    transform: translateZ(-4rem);
+  }
 }
 
 /* Custom Scrollbar */
